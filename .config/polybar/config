@@ -1,0 +1,427 @@
+[colors]
+dark = #182725
+mid = #aa282a36
+border = #6E6F69
+light = #f8f8f2
+highlight = #8be9fd
+urgent = #B73C33
+
+[settings]
+throttle-ms = 50
+throttle-limit = 5
+
+
+[bar/left]
+monitor = DP-2
+width = 100%
+height = 25
+offset-y = 5
+
+background = #aa282a36
+foreground = #f8f8f2
+
+overline-size = 2
+overline-color = #bc92f8
+underline-size = 2
+underline-color = #bc92f8
+
+spacing = 1
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = Noto Sans:style=Regular:size=8;0
+font-1 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;0
+font-2 = Iosevka,Iosevka Extrabold:style=Extrabold,Regular:size=8;0
+font-3 = Misc Termsynu:size=8;-1
+font-4 = Unifont:size=6;-3
+font-5 = Iosevka:style=Regular:size=12;0
+font-6 = Hack Nerd Font:pixelsize=16;2
+font-7 = Hack Nerd Font:pixelsize=16;4
+
+modules-left = i3 i3_index i3_icon
+modules-center = xwindow
+modules-right = updates-arch-combined pulseaudio battery cpu memory clock powermenu
+
+
+[bar/right]
+monitor = eDP-1
+width = 100%
+height = 27
+offset-y = 5
+
+
+background = #aa282a36
+foreground = #f8f8f2
+
+overline-size = 2
+overline-color = #bc92f8
+underline-size = 2
+underline-color = #bc92f8
+
+spacing = 1
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = Noto Sans:style=Regular:size=8;0
+font-1 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;0
+font-2 = Iosevka:style=Regular:size=8;0
+font-3 = Misc Termsynu:size=8;-1
+font-4 = Unifont:size=6;-3
+font-5 = Iosevka:style=Regular:size=12;0
+font-6 = Hack Nerd Font:pixelsize=16;2
+font-7 = Hack Nerd Font:pixelsize=16;4
+
+modules-left = i3 i3_index i3_icon
+modules-center = xwindow
+modules-right = updates-arch-combined pulseaudio battery cpu memory clock powermenu
+
+tray-position = right
+tray-maxsize = 32
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+
+label-mode = "%mode% "
+label-mode-foreground = ${colors.urgent}
+label-mode-background = ${colors.mid}
+
+; need to add: https://github.com/kenogo/polybar/commit/c2b6fa3fcc2c54da1d06827eaed16b5155585ec3
+ws-num = 10
+show-all = true
+label-empty-foreground = ${colors.border}
+label-empty-background = ${colors.mid}
+label-empty-font = 7
+label-empty = " "
+
+index-sort = true
+enable-click = false
+enable-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = " "
+label-focused-font = 7
+label-focused-foreground = ${colors.highlight}
+label-focused-background = ${colors.mid}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = " "
+label-unfocused-font = 7
+label-unfocused-foreground = ${colors.light}
+label-unfocused-background = ${colors.mid}
+
+; urgent = Workspace with urgency hint set
+label-urgent = " "
+label-urgent-font = 7
+label-urgent-foreground = ${colors.urgent}
+label-urgent-background = ${colors.mid}
+
+label-visible = " "
+label-visible-font = 7
+label-visible-foreground = ${colors.light}
+label-visible-background = ${colors.mid}
+
+[module/i3_index]
+type = internal/i3
+format = <label-state>
+
+pin-workspaces = true
+
+label-focused = " %index% "
+label-focused-foreground = ${colors.light}
+label-focused-background = ${colors.mid}
+
+label-unfocused =
+label-urgent =
+label-visible = " %index% "
+
+[module/i3_icon]
+type = internal/i3
+format = <label-state>
+
+pin-workspaces = true
+
+ws-icon-default = 
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+
+label-focused = %icon%
+label-focused-font = 8
+label-focused-foreground = ${colors.light}
+label-focused-background = ${colors.mid}
+
+label-unfocused = 
+label-urgent = 
+
+label-visible = %icon%
+label-visible-font = 8
+label-visible-foreground = ${colors.light}
+label-visible-background = ${colors.mid}
+
+[module/i3_name]
+type = internal/i3
+format = <label-state>
+
+pin-workspaces = true
+
+ws-icon-default = FREE
+ws-icon-0 = 1;MAIL
+ws-icon-1 = 2;DEV
+ws-icon-2 = 3;WEB
+ws-icon-3 = 4;FILE
+ws-icon-4 = 5;FILE
+ws-icon-5 = 6;FREE
+ws-icon-6 = 7;FREE
+ws-icon-7 = 8;RUN
+ws-icon-8 = 9;DATA
+ws-icon-9 = 10;COM
+
+label-focused = " %icon% "
+label-focused-foreground = ${colors.light}
+label-focused-background = ${colors.mid}
+
+label-unfocused =
+label-urgent =
+label-visible = 
+
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label> <ramp-coreload>
+format-background = #66cc99
+format-foreground = #2a5c45
+format-underline = #60eaa5
+format-overline = #60eaa5
+format-padding = 2
+
+label = cpu
+label-font = 3
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 5
+ramp-coreload-0-foreground = #000000
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 5
+ramp-coreload-1-foreground = #000000
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 5
+ramp-coreload-2-foreground = #000000
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 5
+ramp-coreload-3-foreground = #000000
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 5
+ramp-coreload-4-foreground = #ffffff
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 5
+ramp-coreload-5-foreground = #ffffff
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 5
+ramp-coreload-6-foreground = #ff3b51
+ramp-coreload-7 = █
+ramp-coreload-7-font = 5
+ramp-coreload-7-foreground = #ff3b51
+
+[module/memory]
+type = internal/memory
+
+format = <label> <bar-used>
+format-padding = 2
+format-background = #cb66cc
+format-foreground = #2a5c45
+format-underline = #e58de6
+format-overline = #e58de6
+
+label = memory
+label-font = 3
+
+bar-used-width = 10
+bar-used-indicator = |
+bar-used-indicator-font = 4
+bar-used-indicator-foreground = #ffaaf5
+bar-used-fill = -
+bar-used-fill-font = 4
+bar-used-fill-foreground = #ffaaf5
+bar-used-empty = -
+bar-used-empty-font = 4
+bar-used-empty-foreground = #934e94
+
+[module/clock]
+type = internal/date
+date = %Y-%m-%d %H:%M%
+
+format-padding = 2
+format-background = #ff4279
+format-foreground = #2a5c45
+format-underline = #ff63a5
+format-overline = #ff63a5
+format-font = 3
+
+[module/pulseaudio]
+type = internal/pulseaudio
+#sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+format-volume = <ramp-volume> <label-volume>
+label-volume = %{A3:pavucontrol:}%percentage% %{A}
+label-muted = %{A3:pavucontrol:} muted%{A}
+label-muted-foreground = #666
+format-volume-padding = 2
+format-volume-background = #fff85a
+format-volume-foreground = #43433a
+format-volume-underline = #fffb8f
+format-volume-overline = #fffb8f
+format-volume-font = 3
+
+format-muted-padding = 2
+format-muted-background = #77ffffff
+format-muted-foreground = #666666
+format-muted-font = 3
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = %{A3:pavucontrol:}%{A}
+ramp-volume-1 = %{A3:pavucontrol:}%{A}
+ramp-volume-2 = %{A3:pavucontrol:}%{A}
+
+[module/battery]
+type = internal/battery
+
+format-full-background = #8be9fd
+format-full-foreground = #2a5c45
+format-full-underline = #9bf9ff
+format-full-overline = #9bf9ff
+format-full-padding = 2
+format-full-font = 3
+
+format-charging-background = #8be9fd
+format-charging-foreground = #2a5c45
+format-charging-underline = #9bf9ff
+format-charging-overline = #9bf9ff
+format-charging-padding = 2
+format-charging-font = 3
+
+format-discharging-background = #ff5555
+format-discharging-foreground = #2a5c45
+format-discharging-underline = #ff6565
+format-discharging-overline = #ff6565
+format-discharging-padding = 2
+format-discharging-font = 3
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-charging = %percentage%%
+
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+
+animation-discharging-framerate = 500
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+label-open = 
+;label-open-foreground = ${colors.secondary}
+label-close =  cancel
+;label-close-foreground = ${colors.secondary}
+label-separator = |
+;label-separator-foreground = ${colors.foreground-alt}
+
+label-open-font = 3
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = suspend
+menu-0-2-exec = menu-open-3
+menu-0-3 = logout
+menu-0-3-exec = menu-open-4
+menu-0-4 = lock
+menu-0-4-exec = menu-open-5
+
+menu-1-0 = reboot
+menu-1-0-exec = systemctl reboot
+menu-1-1 = back
+menu-1-1-exec = menu-open-0
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = back
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = suspend
+menu-3-0-exec = systemctl suspend
+menu-3-1 = back
+menu-3-1-exec = menu-open-0
+
+menu-4-0 = logout
+menu-4-0-exec = xfce4-session-logout --logout
+menu-4-1 = back
+menu-4-1-exec = menu-open-0
+
+menu-5-0 = lock
+menu-5-0-exec = dm-tool lock
+menu-5-1 = back
+menu-5-1-exec = menu-open-0
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/updates-arch-combined.sh
+interval = 600
+
+[module/xwindow]
+type = internal/xwindow
+label-font = 6
+
+; vim:ft=dosini
