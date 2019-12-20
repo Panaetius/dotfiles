@@ -13,6 +13,7 @@ alias grep='grep --color=auto'
 
 # dotfiles alias
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias etcconfig='git --git-dir=$HOME/.etccfg/ --work-tree=/etc'
 
 PS1='[\u@\h \W]\$ '
 

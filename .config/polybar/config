@@ -5,6 +5,7 @@ border = #6E6F69
 light = #f8f8f2
 highlight = #8be9fd
 urgent = #B73C33
+squareborder = #9bf9ff
 
 [settings]
 throttle-ms = 50
@@ -198,10 +199,10 @@ type = internal/cpu
 interval = 0.5
 
 format = <label> <ramp-coreload>
-format-background = #66cc99
+format-background = ${colors.highlight}
 format-foreground = #2a5c45
-format-underline = #60eaa5
-format-overline = #60eaa5
+format-underline = ${colors.squareborder}
+format-overline = ${colors.squareborder}
 format-padding = 2
 
 label = cpu
@@ -237,10 +238,10 @@ type = internal/memory
 
 format = <label> <bar-used>
 format-padding = 2
-format-background = #cb66cc
+format-background = ${colors.highlight}
 format-foreground = #2a5c45
-format-underline = #e58de6
-format-overline = #e58de6
+format-underline = ${colors.squareborder}
+format-overline = ${colors.squareborder}
 
 label = memory
 label-font = 3
@@ -261,10 +262,10 @@ type = internal/date
 date = %Y-%m-%d %H:%M%
 
 format-padding = 2
-format-background = #ff4279
+format-background = ${colors.highlight}
 format-foreground = #2a5c45
-format-underline = #ff63a5
-format-overline = #ff63a5
+format-underline = ${colors.squareborder}
+format-overline = ${colors.squareborder}
 format-font = 3
 
 [module/pulseaudio]
@@ -279,10 +280,10 @@ label-volume = %{A3:pavucontrol:}%percentage% %{A}
 label-muted = %{A3:pavucontrol:} muted%{A}
 label-muted-foreground = #666
 format-volume-padding = 2
-format-volume-background = #fff85a
+format-volume-background = ${colors.highlight}
 format-volume-foreground = #43433a
-format-volume-underline = #fffb8f
-format-volume-overline = #fffb8f
+format-volume-underline = ${colors.squareborder}
+format-volume-overline = ${colors.squareborder}
 format-volume-font = 3
 
 format-muted-padding = 2
@@ -298,14 +299,14 @@ ramp-volume-2 = %{A3:pavucontrol:}%{A}
 [module/battery]
 type = internal/battery
 
-format-full-background = #8be9fd
+format-full-background = ${colors.highlight}
 format-full-foreground = #2a5c45
 format-full-underline = #9bf9ff
 format-full-overline = #9bf9ff
 format-full-padding = 2
 format-full-font = 3
 
-format-charging-background = #8be9fd
+format-charging-background = ${colors.highlight}
 format-charging-foreground = #2a5c45
 format-charging-underline = #9bf9ff
 format-charging-overline = #9bf9ff

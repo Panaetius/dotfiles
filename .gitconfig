@@ -1,0 +1,25 @@
+[user]
+	name = Panaetius
+	email = ralf.grubenmann@sdsc.ethz.ch
+[core]
+	editor = nano
+[diff]
+	tool = meld
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[difftool]
+	prompt = false
+[merge]
+	tool = meld
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[mergetool]
+	prompt = false
+	keepBackup = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[cola]
+	spellcheck = false
