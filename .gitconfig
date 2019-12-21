@@ -1,6 +1,8 @@
 [user]
-	name = Panaetius
-	email = ralf.grubenmann@sdsc.ethz.ch
+	email = ralf.grubenmann@gmail.com
+	name = Ralf Grubenmann
+[credential]
+	helper = cache
 [core]
 	editor = nano
 [diff]
