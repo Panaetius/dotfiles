@@ -215,5 +215,12 @@ for_window [workspace=$ws2] layout tabbed
 exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id compton
-exec --no-startup-id i3-msg 'workspace 1; exec thunderbird; exec slack; workspace 2; exec code; exec exo-open --launch TerminalEmulator; exec workspace 3; exec chromium; workspace 1'
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.i3/workspace-3.json'"
+exec --no-startup-id thunderbird
+exec --no-startup-id slack
+exec --no-startup-id code
+exec --no-startup-id exo-open --launch TerminalEmulator
+exec --no-startup-id firefox
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 900 'i3lock -t -i /usr/share/pixmaps/earth.png' ''
