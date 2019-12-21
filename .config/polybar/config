@@ -13,7 +13,7 @@ throttle-limit = 5
 
 
 [bar/left]
-monitor = DP-2
+monitor = HDMI-0
 width = 100%
 height = 25
 offset-y = 5
@@ -42,11 +42,11 @@ font-7 = Hack Nerd Font:pixelsize=16;4
 
 modules-left = i3 i3_index i3_icon
 modules-center = xwindow
-modules-right = updates-arch-combined pulseaudio battery cpu memory clock powermenu
+modules-right = updates-arch-combined pulseaudio cpu memory clock powermenu
 
 
 [bar/right]
-monitor = eDP-1
+monitor = DP-4
 width = 100%
 height = 27
 offset-y = 5
@@ -76,7 +76,7 @@ font-7 = Hack Nerd Font:pixelsize=16;4
 
 modules-left = i3 i3_index i3_icon
 modules-center = xwindow
-modules-right = updates-arch-combined pulseaudio battery cpu memory clock powermenu
+modules-right = updates-arch-combined pulseaudio cpu memory clock powermenu
 
 tray-position = right
 tray-maxsize = 32
