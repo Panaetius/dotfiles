@@ -424,5 +424,6 @@ interval = 600
 [module/xwindow]
 type = internal/xwindow
 label-font = 6
+label = %title:0:100%
 
 ; vim:ft=dosini

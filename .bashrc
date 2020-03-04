@@ -10,6 +10,7 @@ export HISTCONTROL=ignoredups:erasedups
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias yay='yay -Pw && yay'
 
 # dotfiles alias
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -27,3 +28,9 @@ eval "$(pyenv virtualenv-init -)"
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/zenon/DEV/google-cloud-sdk/path.bash.inc' ]; then . '/home/zenon/DEV/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/zenon/DEV/google-cloud-sdk/completion.bash.inc' ]; then . '/home/zenon/DEV/google-cloud-sdk/completion.bash.inc'; fi
